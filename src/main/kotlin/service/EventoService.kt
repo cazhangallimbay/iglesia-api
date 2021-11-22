@@ -6,6 +6,7 @@ class EventoService {
   @Autowired
   lateinit var eventoRepository: EventoRepository
 
+
   fun list(): List<Evento> {
 
     return eventoRepository.findAll()
@@ -13,9 +14,15 @@ class EventoService {
 
 
   fun save(evento: Evento): Evento{
-
+    if (evento.nombre.equals("")){
+      throw Exception()
+    }
+    else {
     return eventoRepository.save(evento)
   }
+
+  }
+
 
 
   fun update(evento: Evento): Evento{

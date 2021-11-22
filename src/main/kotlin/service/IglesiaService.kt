@@ -21,8 +21,14 @@ class IglesiaService {
 
 
   fun update(iglesia: Iglesia): Iglesia {
+if (iglesia.direccion.equals("")){
+  throw Exception()
+  }
+    else {
+  return iglesiaRepository.save(iglesia)
 
-    return iglesiaRepository.save(iglesia)
+    }
+
 
   }
 
@@ -36,6 +42,7 @@ class IglesiaService {
     }
     return iglesiaRepository.save(response)
   }
+
 
   fun delete (id:Long): Boolean{
     iglesiaRepository.deleteById(id)

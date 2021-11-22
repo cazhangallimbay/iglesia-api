@@ -11,7 +11,6 @@ class Iglesia {
   var id: Long? = null
   var nombre: String? = null
   var color: String? = null
-  var tamaño: String? = null
   var direccion: String? = null
 
 }
