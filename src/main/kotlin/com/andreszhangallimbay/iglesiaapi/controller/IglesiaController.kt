@@ -1,5 +1,6 @@
-
-import model.Iglesia
+package com.andreszhangallimbay.iglesiaapi.controller
+import com.andreszhangallimbay.iglesiaapi.model.Iglesia
+import com.andreszhangallimbay.iglesiaapi.service.IglesiaService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 

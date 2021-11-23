@@ -1,3 +1,5 @@
+package com.andreszhangallimbay.iglesiaapi.repository
+import com.andreszhangallimbay.iglesiaapi.model.Misa
 import org.springframework.data.jpa.repository.JpaRepository
 
 

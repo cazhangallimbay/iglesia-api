@@ -1,7 +1,8 @@
-import model.Iglesia
+package  com.andreszhangallimbay.iglesiaapi.service
+import com.andreszhangallimbay.iglesiaapi.model.Iglesia
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import repository.IglesiaRepository
+import com.andreszhangallimbay.iglesiaapi.repository.IglesiaRepository
 
 @Service
 class IglesiaService {

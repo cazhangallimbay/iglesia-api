@@ -1,3 +1,4 @@
+package com.andreszhangallimbay.iglesiaapi.model
 import java.util.*
 import javax.persistence.*
 

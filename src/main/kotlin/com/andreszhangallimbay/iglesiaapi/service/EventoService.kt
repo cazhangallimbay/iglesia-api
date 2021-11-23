@@ -1,3 +1,6 @@
+package com.andreszhangallimbay.iglesiaapi.service
+import com.andreszhangallimbay.iglesiaapi.model.Evento
+import com.andreszhangallimbay.iglesiaapi.repository.EventoRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

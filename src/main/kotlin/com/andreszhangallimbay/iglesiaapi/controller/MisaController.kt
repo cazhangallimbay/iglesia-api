@@ -1,6 +1,8 @@
+package com.andreszhangallimbay.iglesiaapi.controller
+import com.andreszhangallimbay.iglesiaapi.model.Misa
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
-import service.MisaService
+import com.andreszhangallimbay.iglesiaapi.service.MisaService
 
 @RestController
 @RequestMapping("/misa")

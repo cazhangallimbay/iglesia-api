@@ -1,16 +1,15 @@
-package model
-
+package com.andreszhangallimbay.iglesiaapi.model
+import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name = "iglesia")
-class Iglesia {
+@Table(name = "evento")
+class Evento {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
   @Column(updatable = false)
   var id: Long? = null
   var nombre: String? = null
-  var color: String? = null
-  var direccion: String? = null
-
+  var fecha: Date? = null
+  var hora: Date? = null
 }

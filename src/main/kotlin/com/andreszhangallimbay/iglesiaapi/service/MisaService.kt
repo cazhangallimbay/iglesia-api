@@ -1,7 +1,7 @@
-package service
+package com.andreszhangallimbay.iglesiaapi.service
 
-import Misa
-import MisaRepository
+import com.andreszhangallimbay.iglesiaapi.model.Misa
+import com.andreszhangallimbay.iglesiaapi.repository.MisaRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
