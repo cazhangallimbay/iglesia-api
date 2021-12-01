@@ -15,7 +15,6 @@ CREATE TABLE misa(
                      foreign key (iglesia_id) references iglesia (id)
 
 
-
 );
 
 CREATE TABLE evento (
