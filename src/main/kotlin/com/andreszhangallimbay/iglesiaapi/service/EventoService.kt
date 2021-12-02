@@ -38,18 +38,20 @@ class EventoService {
 
   fun updateDescription (evento: Evento):Evento{
     try {
-    val response = eventoRepository.findById(evento.id)
+      if (evento.nombre.equals("")){
+        throw Exception("nombre no puede estar vacio")
+      }
+      val response = eventoRepository.findById(evento.id)
 
-      ?: throw Exception()
-
-    response.apply {
-      this.nombre = evento.nombre
+        ?: throw Exception("El id ${evento.id} en dieta no existe")
+      response.apply {
+        this.nombre = evento.nombre
+      }
+      return eventoRepository.save(evento)
     }
-    return eventoRepository.save(response)
-  }
     catch (ex: Exception) {
       throw ResponseStatusException(
-        HttpStatus.NOT_FOUND, "Evento no encontrado", ex)
+        HttpStatus.NOT_FOUND, ex.message, ex)
     }
   }
 

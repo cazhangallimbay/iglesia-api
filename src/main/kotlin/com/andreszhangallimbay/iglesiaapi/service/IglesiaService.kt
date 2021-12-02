@@ -44,20 +44,21 @@ if (iglesia.direccion.equals("")){
 
   fun updateDescription (iglesia: Iglesia): Iglesia {
     try {
-    val response = iglesiaRepository.findById(iglesia.id)
-
-      ?: throw Exception()
-
-    response.apply {
-      this.nombre = iglesia.nombre
+      if (iglesia.nombre.equals("")){
+        throw Exception("nombre no puede estar vacio")
+      }
+      val response = iglesiaRepository.findById(iglesia.id)
+        ?: throw Exception("El id ${iglesia.id} en dieta no existe")
+      response.apply {
+        this.nombre = iglesia.nombre
+      }
+      return iglesiaRepository.save(iglesia)
     }
-    return iglesiaRepository.save(response)
+    catch (ex: Exception) {
+      throw ResponseStatusException(
+        HttpStatus.NOT_FOUND, ex.message, ex)
+    }
   }
-  catch (ex: Exception) {
-    throw ResponseStatusException(
-      HttpStatus.NOT_FOUND, "Iglesia no encontrada", ex)
-  }
-}
 
   fun delete (id:Long): Boolean{
     iglesiaRepository.deleteById(id)

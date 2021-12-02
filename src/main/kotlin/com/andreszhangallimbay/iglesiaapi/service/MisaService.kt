@@ -32,18 +32,19 @@ class MisaService {
 
     fun updateDescription(misa: Misa): Misa {
         try {
-        val response = misaRepository.findById(misa.id)
-
-            ?: throw Exception()
-
-        response.apply {
-            this.fecha = misa.fecha
+            if (misa.hora?.equals(false) == true){
+                throw Exception("nombre no puede estar vacio")
+            }
+            val response = misaRepository.findById(misa.id)
+                ?: throw Exception("El id ${misa.id} en dieta no existe")
+            response.apply {
+                this.fecha = misa.fecha
+            }
+            return misaRepository.save(misa)
         }
-        return misaRepository.save(response)
-    }
-    catch (ex: Exception) {
-        throw ResponseStatusException(
-            HttpStatus.NOT_FOUND, "Misa no encontrada", ex)
+        catch (ex: Exception) {
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
     }
 }
 
