@@ -39,16 +39,17 @@ if (iglesia.direccion.equals("")){
 
     }
 
-
   }
 
   fun updateDescription (iglesia: Iglesia): Iglesia {
     try {
+      iglesia.nombre?.trim()?.isEmpty()
+        ?: throw Exception("nombre no puede estar vacio")
+
       if (iglesia.nombre.equals("")){
-        throw Exception("nombre no puede estar vacio")
       }
       val response = iglesiaRepository.findById(iglesia.id)
-        ?: throw Exception("El id ${iglesia.id} en dieta no existe")
+        ?: throw Exception("El id ${iglesia.id} en iglesia no existe")
       response.apply {
         this.nombre = iglesia.nombre
       }

@@ -19,8 +19,12 @@ class EventoService {
 
 
   fun save(evento: Evento): Evento{
+
+     evento.nombre?.takeIf {it.trim().isNotEmpty()}
+       ?: throw Exception("el nombre no puede estar vacio")
+
     if (evento.nombre.equals("")){
-      throw Exception()
+      throw Exception("el nombre no puede estar vacio")
     }
     else {
     return eventoRepository.save(evento)
@@ -44,6 +48,7 @@ class EventoService {
       val response = eventoRepository.findById(evento.id)
 
         ?: throw Exception("El id ${evento.id} en dieta no existe")
+
       response.apply {
         this.nombre = evento.nombre
       }
@@ -54,8 +59,6 @@ class EventoService {
         HttpStatus.NOT_FOUND, ex.message, ex)
     }
   }
-
-
 
   fun delete (id:Long): Boolean{
     eventoRepository.deleteById(id)
