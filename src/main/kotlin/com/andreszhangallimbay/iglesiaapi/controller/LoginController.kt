@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT])
+
 class LoginController {
+
     @Autowired
     lateinit var authenticationManager : AuthenticationManager
 
@@ -37,5 +39,9 @@ class LoginController {
         catch (e: BadCredentialsException){
             return ResponseEntity(HttpStatus.FORBIDDEN)
         }
+
     }
+
 }
+
+

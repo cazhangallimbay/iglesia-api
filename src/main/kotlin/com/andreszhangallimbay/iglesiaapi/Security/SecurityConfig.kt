@@ -16,13 +16,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 class SecurityConfig: WebSecurityConfigurerAdapter()  {
 
     @Autowired
-    lateinit var UserDetailsService: UserDetailsService
+    lateinit var userDetailsService: UserDetailsService
 
     @Autowired
     lateinit var jwtFilterRequest: JwtFilterRequest
 
     override fun configure(auth: AuthenticationManagerBuilder?) {
-        auth?.userDetailsService(UserDetailsService)
+        auth?.userDetailsService(userDetailsService)
     }
 
     override fun configure(http: HttpSecurity) {

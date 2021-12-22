@@ -21,7 +21,6 @@ class EventoController {
     return eventoService.save(evento)
   }
 
-
   @PutMapping
   fun update (@RequestBody evento: Evento):  Evento {
     return eventoService.update(evento)
