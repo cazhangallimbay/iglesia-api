@@ -32,8 +32,6 @@ class EventoService {
 
   }
 
-
-
   fun update(evento: Evento): Evento{
 
     return eventoRepository.save(evento)
@@ -64,5 +62,13 @@ class EventoService {
     eventoRepository.deleteById(id)
     return true
   }
+
+  fun verifyWord(nombre: String?):Boolean{
+    if (nombre?.length!!<3){
+      return false
+    }
+    return true
+  }
+
 }
 

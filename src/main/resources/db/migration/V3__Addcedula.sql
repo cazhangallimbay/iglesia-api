@@ -1,0 +1,1 @@
+ALTER TABLE usuario ADD cédula VARCHAR (45) NOT NULL;
