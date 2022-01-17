@@ -2,8 +2,6 @@ package com.andreszhangallimbay.iglesiaapi.service
 
 import com.andreszhangallimbay.iglesiaapi.model.Usuario
 import com.andreszhangallimbay.iglesiaapi.repository.UsuarioRepository
-import com.sun.tools.classfile.Module_attribute.ProvidesEntry.length
-import javassist.CtMethod.ConstParameter.string
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -95,30 +93,30 @@ class UsuarioService {
   El último dígito es calculado con los 9 anteriores dígitos de la siguiente manera
   Los dígitos pares son multiplicados por 2 y si el resultado es mayor o igual a 10 se le resta 9
   Los dígitos impares son multiplicados por 1
-   A la suma de todos los dígitos conjuntamente con la operación anterior se le resta la decena
+   A la suma de todos los dígitos conjuntamente con la operación anterior se le resta la decéna
    superior, es decir si la suma sale 31 debemos restar 40 - 31 = 9
    */
 
   fun veryfyCedulaisCorrect(cedula:String): Boolean {
     var suma = 0
     return if (cedula.length == 9) {
-      println("Ingrese su cedula de 10 digitos")
+      println("Ingrese su cédula de 10 dígitos")
       false
-    } else {
+    }
+    else
+    {
       val a = IntArray(cedula.length / 2)
       val b = IntArray(cedula.length / 2)
       var c = 0
       var d = 1
-      for (i in 0 until cedula.length / 2) {
-        a[i] = cedula[c].toString().toInt()
+      for (i in 0 until cedula.length / 2) {a[i] = cedula[c].toString().toInt()
         c += 2
-        if (i < cedula.length / 2 - 1) {
-          b[i] = cedula[d].toString().toInt()
+
+        if (i < cedula.length / 2 - 1) { b[i] = cedula[d].toString().toInt()
           d += 2
         }
       }
-      for (i in a.indices) {
-        a[i] = a[i] * 2
+      for (i in a.indices) { a[i] = a[i] * 2
         if (a[i] > 9) {
           a[i] = a[i] - 9
         }
@@ -126,8 +124,7 @@ class UsuarioService {
       }
       val aux = suma / 10
       val dec = (aux + 1) * 10
-      if (dec - suma == cedula[cedula.length - 1].toString()
-          .toInt()
+      if (dec - suma == cedula[cedula.length - 1].toString().toInt()
       ) true else suma % 10 == 0 && cedula[cedula.length - 1] == '0'
     }
   }

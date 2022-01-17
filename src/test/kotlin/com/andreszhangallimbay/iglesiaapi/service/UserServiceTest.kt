@@ -46,14 +46,13 @@ class UserServiceTest {
 
     @Test
     fun veryfyCedulaisCorrect() {
-        val response = userService.veryfyCedulaisCorrect("0105496624")
+        val response = userService.veryfyCedulaisCorrect("0301707030")
         Assertions.assertEquals(true,response)
     }
 
     @Test
     fun veryfyCedulaisNotCorrect() {
-        val response = userService.veryfyCedulaisCorrect("0000099739")
+        val response = userService.veryfyCedulaisCorrect("030170703")
         Assertions.assertEquals(false, response)
     }
-
 }
