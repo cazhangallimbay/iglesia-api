@@ -24,7 +24,7 @@ class IglesiaService {
 
   fun save(iglesia: Iglesia): Iglesia {
 
-    val response = misaRepository.findById(iglesia.id)
+    misaRepository.findById(iglesia.id)
 
     return iglesiaRepository.save(iglesia)
   }

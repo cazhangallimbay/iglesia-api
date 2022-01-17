@@ -45,8 +45,6 @@ class EventoService {
       }
       val response = eventoRepository.findById(evento.id)
 
-        ?: throw Exception("El id ${evento.id} en dieta no existe")
-
       response.apply {
         this.nombre = evento.nombre
       }
@@ -69,6 +67,5 @@ class EventoService {
     }
     return true
   }
-
 }
 

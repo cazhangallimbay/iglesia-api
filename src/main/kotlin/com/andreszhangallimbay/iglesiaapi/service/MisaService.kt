@@ -36,7 +36,6 @@ class MisaService {
                 throw Exception("nombre no puede estar vacio")
             }
             val response = misaRepository.findById(misa.id)
-                ?: throw Exception("El id ${misa.id} en dieta no existe")
             response.apply {
                 this.fecha = misa.fecha
             }
