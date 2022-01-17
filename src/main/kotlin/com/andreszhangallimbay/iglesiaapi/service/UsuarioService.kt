@@ -54,7 +54,6 @@ class UsuarioService {
   // y si el index es impar, devolver number por 1
 
 
-
   fun calcMultiplication (index: Int, number:Int):Int {
     if (index %  2 == 0){
       return  number * 2
@@ -72,7 +71,6 @@ class UsuarioService {
   }
   return number
 }
-
 
   // 15 (int) / 10 = 1.5  solo el primero
   // restar
