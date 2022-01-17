@@ -22,10 +22,10 @@ class UsuarioService {
   fun save(usuario: Usuario): Usuario {
 
     usuario.cedula?.takeIf {it.trim().isNotEmpty()}
-      ?: throw Exception("la cédula no puede estar vacio")
+      ?: throw Exception("la cédula no puede estár vacio")
 
     if (usuario.cedula.equals("")){
-      throw Exception("la cédula no puede estar vacio")
+      throw Exception("la cédula no puede estár vacio")
     }
     else {
       return usuarioRepository.save(usuario)
@@ -34,36 +34,30 @@ class UsuarioService {
 
   fun getUsuario(usernane: String?): Usuario?{
     try {
-      val response = usuarioRepository.findByUsername(usernane)
+      return usuarioRepository.findByUsername(usernane)
         ?: throw Exception("usuario no existe")
-      return response
-    } catch (ex: Exception){
+    } catch (ex: Exception) {
       throw ResponseStatusException(
-        HttpStatus.NOT_FOUND, ex.message, ex)
+        HttpStatus.NOT_FOUND, ex.message, ex
+      )
     }
   }
 
-  fun update(usuario: Usuario): Usuario{
-
-    return usuarioRepository.save(usuario)
-
-  }
-
-  //metodos de lógica
+  //métodos de lógica
   // si index es par, devolver number por 2
   // y si el index es impar, devolver number por 1
 
 
   fun calcMultiplication (index: Int, number:Int):Int {
-    if (index %  2 == 0){
-      return  number * 2
+    return if (index %  2 == 0){
+      number * 2
     }
     else
-      return number
+      number
     }
 
-  //si el number es mayor o igual a 10 le devolvemos restado 9 , valor maximo 18
-  //y minimo 0, si es el valor es 9 y 8 devolver el mismo nuemero
+  //si el number es mayor o igual a 10 le devolvemos restado 9 , valor máximo 18
+  //y mínimo 0, si es el valor es 9 y 8 devolver el mismo número
 
   fun restNine (number: Int):Int{
     if (number in 10..18){
@@ -76,8 +70,8 @@ class UsuarioService {
   // restar
 
   fun subtactFromNextTen(number: Int): Int {
-    var numdiez = (number/10) + 1
-    var response = (numdiez*10) - number
+    val numdiez = (number/10) + 1
+    val response = (numdiez*10) - number
     if (response == 10){
       return  0
     }
@@ -98,7 +92,7 @@ class UsuarioService {
   fun veryfyCedulaisCorrect(cedula:String): Boolean {
     var suma = 0
     return if (cedula.length == 9) {
-      println("Ingrese su cédula de 10 dígitos")
+      println("Ingrese su cédula que tenga 10 dígitos")
       false
     }
     else
