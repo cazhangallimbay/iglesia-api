@@ -34,8 +34,15 @@ class EventoService {
 
   fun update(evento: Evento): Evento{
 
-    return eventoRepository.save(evento)
+    try {
+      if (evento.equals(""))
 
+      eventoRepository.findById(evento.id)
+        ?: throw Exception()
+      return eventoRepository.save(evento)
+    }catch (ex:Exception){
+      throw Exception()
+    }
   }
 
   fun updateDescription (evento: Evento):Evento{

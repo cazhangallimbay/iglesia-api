@@ -35,7 +35,6 @@ class MisaServiceTest {
         //PAra actualizar
         /// LLAVES  FORENEAS
         Mockito.`when`(iglesiaRepository.findById(misaMock.iglesia_id)).thenReturn(iglesiaMock)
-
         Mockito.`when`(misaRepository.save(Mockito.any(Misa::class.java))).thenReturn(misaMock)
         val response = misaService.save(misaMock)
         Assertions.assertEquals(response.id, misaMock.id)
@@ -43,11 +42,45 @@ class MisaServiceTest {
 }
 
     @Test
-    fun saveTeacherFailed(){
+    fun saveMisaIsFailed(){
         Assertions.assertThrows(Exception::class.java) {
-            misaMock.apply { fecha = "" }
+
             Mockito.`when`(misaRepository.save(Mockito.any(Misa::class.java))).thenReturn(misaMock)
             misaService.save(misaMock)
+        }
+    }
+
+    @Test
+    fun updateIsFailedWhen(){
+
+        Assertions.assertThrows(Exception::class.java) {
+            Mockito.`when`(iglesiaRepository.findById(misaMock.iglesia_id)).thenReturn(null)
+            Mockito.`when`(misaRepository.save(Mockito.any(Misa::class.java))).thenReturn(misaMock)
+            val response = misaService.save(misaMock)
+            Assertions.assertEquals(response.id, misaMock.id)
+        }
+    }
+
+    @Test
+    fun updateDescrptionIsFailedWhen(){
+
+        Assertions.assertThrows(Exception::class.java) {
+            Mockito.`when`(iglesiaRepository.findById(misaMock.iglesia_id)).thenReturn(null)
+            Mockito.`when`(misaRepository.save(Mockito.any(Misa::class.java))).thenReturn(misaMock)
+            val response = misaService.update(misaMock)
+            Assertions.assertEquals(response.id, misaMock.id)
+        }
+
+    }
+
+    @Test
+    fun delete(){
+
+        Assertions.assertThrows(Exception::class.java) {
+            Mockito.`when`(iglesiaRepository.findById(misaMock.iglesia_id)).thenReturn(misaMock)
+            Mockito.`when`(misaRepository.save(Mockito.any(Misa::class.java))).thenReturn(misaMock)
+            val response = misaService.delete(misaMock)
+            Assertions.assertEquals(response, true)
         }
     }
 

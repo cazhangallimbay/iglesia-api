@@ -14,8 +14,8 @@
 	<name>IglesiaController-api </name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
-		<kotlin.version>1.5.31</kotlin.version>
+		<java.version>8</java.version>
+		<kotlin.version>1.4.2</kotlin.version>
 	</properties>
 	<dependencies>
 		<dependency>

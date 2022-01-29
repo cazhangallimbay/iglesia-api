@@ -40,4 +40,7 @@ class EventoServiceTest {
         Assertions.assertEquals(response.id, newObject.id)
         Assertions.assertEquals(response.nombre, newObject.nombre)
     }
+
+
+
 }

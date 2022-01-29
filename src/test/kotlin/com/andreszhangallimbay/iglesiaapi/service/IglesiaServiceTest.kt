@@ -1,5 +1,4 @@
 package com.andreszhangallimbay.iglesiaapi.service
-
 import com.andreszhangallimbay.iglesiaapi.model.Iglesia
 import com.andreszhangallimbay.iglesiaapi.repository.IglesiaRepository
 import com.andreszhangallimbay.iglesiaapi.repository.MisaRepository
@@ -49,7 +48,5 @@ class IglesiaServiceTest {
             iglesiaService.save(iglesiaMock)
         }
     }
-
-
 
 }
