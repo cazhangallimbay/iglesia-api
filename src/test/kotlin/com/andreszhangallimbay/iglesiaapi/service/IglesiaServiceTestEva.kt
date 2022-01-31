@@ -1,4 +1,5 @@
 package com.andreszhangallimbay.iglesiaapi.service
+
 import com.andreszhangallimbay.iglesiaapi.model.Iglesia
 import com.andreszhangallimbay.iglesiaapi.repository.IglesiaRepository
 import com.andreszhangallimbay.iglesiaapi.repository.MisaRepository
@@ -12,7 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest
 import java.io.File
 
 @SpringBootTest
-class IglesiaServiceTest {
+class IglesiaServiceTestEva {
+
+
     @InjectMocks
     lateinit var iglesiaService: IglesiaService
 
@@ -47,12 +50,6 @@ class IglesiaServiceTest {
             Mockito.`when`(iglesiaRepository.save(Mockito.any(Iglesia::class.java))).thenReturn(iglesiaMock)
             iglesiaService.save(iglesiaMock)
         }
-    }
-
-    @Test
-    fun valideIgleisa(){
-        val response = iglesiaService.valideIglesia("")
-        Assertions.assertEquals(false,response)
     }
 
 }

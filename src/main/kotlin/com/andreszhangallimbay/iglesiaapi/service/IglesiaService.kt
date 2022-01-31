@@ -65,5 +65,15 @@ if (iglesia.direccion.equals("")){
     iglesiaRepository.deleteById(id)
     return true
   }
+
+
+  fun valideIglesia(Iglesia:String): Boolean {
+    val lista= listOf<String>("1","Santo Domingo De Guzman ","Blanca","Av Padre Aguirre y Gran Colombia")
+    val ingresoid =  (Iglesia.length.compareTo(1))
+    val ingresonombre = (valideIglesia("Blanca"))
+    val ingresodireccion =(Iglesia.length.equals(""))
+
+    if (ingresonombre.equals(""))
+      return false
 }
 
